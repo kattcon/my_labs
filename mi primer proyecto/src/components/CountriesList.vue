@@ -27,7 +27,7 @@
                     <!-- Botones de acciones -->
                     <td>
                         <button class="btn btn-secondary btn-sm">Editar</button>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
+                        <button class="btn btn-danger btn-sm" @click="eliminar(index)">Eliminar</button>
                     </td>
                 </tr>
             </tbody>
@@ -51,6 +51,19 @@
                     { name: 'Alemania', continent: 'Europa', language: 'Alemán' },
                 ],
             };
+        },
+        
+        methods: {
+            // Sección donde se definen las funciones (métodos) del componente Vue
+            eliminar(index) {
+                /**
+                 * Elimina un elemento del arreglo "countries"
+                 * "index" indica la posición del elemento que se quiere borrar
+                 * splice(posición, cantidad)
+                 * En este caso: elimina 1 elemento en la posición indicada por "index"
+                 */
+                this.countries.splice(index, 1);
+            }
         }
     }
 </script>
