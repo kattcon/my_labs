@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using backend_lab_A85112.Models;
+using backend_lab.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend_lab_A85112.Controllers
@@ -7,10 +9,17 @@ namespace backend_lab_A85112.Controllers
     [ApiController]
     public class CountryController : ControllerBase
     {
-        [HttpGet]
-        public string Get()
+        private readonly CountryService countryService;
+        public CountryController()
         {
-            return "Hola Mundo";
+            countryService = new CountryService();
         }
+        [HttpGet]
+        public List<CountryModel> Get()
+        {
+            var paises = countryService.GetCountries();
+            return paises;
+        }
+        
     }
 }
