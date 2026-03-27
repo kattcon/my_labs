@@ -36,6 +36,7 @@
 </template>
 
 <script>
+    import axios from "axios";
     // Nombre del componente y datos que se mostrarán en la tabla
     export default {
         name: 'CountriesList',
@@ -52,7 +53,7 @@
                 ],
             };
         },
-        
+
         methods: {
             // Sección donde se definen las funciones (métodos) del componente Vue
             eliminar(index) {
@@ -63,9 +64,18 @@
                  * En este caso: elimina 1 elemento en la posición indicada por "index"
                  */
                 this.countries.splice(index, 1);
-            }
-        }
-    }
+            },
+            getCountries() {
+                axios.get("http://localhost:5193/api/country").then((response) => {
+                    this.countries = response.data;
+                });
+            },
+        },
+        created: function () {
+            this.getCountries();
+        },
+
+    };
 </script>
 
 <style lang="scss" scoped>
