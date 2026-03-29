@@ -14,12 +14,32 @@ namespace backend_lab_A85112.Controllers
         {
             countryService = new CountryService();
         }
+        // GET: api/country
         [HttpGet]
         public List<CountryModel> Get()
         {
             var paises = countryService.GetCountries();
             return paises;
         }
-        
+
+        // POST: api/country
+        [HttpPost]
+        public async Task<ActionResult<bool>> CreateCountry(CountryModel country)
+        {
+            if (country == null)
+            {
+                return BadRequest();
+            }
+            var result = countryService.CreateCountry(country);
+            if (string.IsNullOrEmpty(result))
+            {
+                return Ok(true);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
+
     }
 }

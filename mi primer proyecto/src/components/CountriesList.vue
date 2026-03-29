@@ -3,6 +3,20 @@
     <div class="container mt-5">
         <!-- Título de la página -->
         <h1 class="display-4 text-center">Lista de países</h1>
+        <!-- Fila de Bootstrap alineada a la derecha -->
+        <div class="row justify-content-end">
+            <!-- Columna que ocupa 2 espacios del grid -->
+            <div class="col-2">
+                <!-- Enlace que redirige a la ruta /country -->
+                <a href="/country">
+                    <!-- Botón con estilo Bootstrap -->
+                    <button type="button" class="btn btn-outline-secondary float-right">
+                        <!-- Texto que verá el usuario -->
+                        Agregar país
+                    </button>
+                </a>
+            </div>
+        </div>
         <!-- Tabla donde se mostrarán los datos -->
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <!-- Encabezado de la tabla -->
@@ -18,7 +32,7 @@
             <tbody>
                 <!-- v-for recorre el arreglo countries y crea una fila por cada país -->
                 <tr v-for="(country, index) of countries" :key="index">
-                     <!-- Muestra el nombre del país -->
+                    <!-- Muestra el nombre del país -->
                     <td>{{country.name}}</td>
                     <!-- Muestra el continente -->
                     <td>{{country.continent}}</td>
