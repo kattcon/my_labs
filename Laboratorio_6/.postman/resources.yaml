@@ -1,0 +1,7 @@
+# Use this workspace to collaborate
+workspace:
+  id: d29172a7-5d4a-4568-818c-5b9c9e25b4c4
+localResources:
+  specs:
+    - ..\mi primer
+      proyecto\backend-lab-A85112\backend-lab-A85112\obj\Debug\net8.0\EndpointInfo\backend-lab-A85112.json
