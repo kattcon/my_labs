@@ -1,5 +1,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using System.Threading;
 
 namespace UIAutomationTests
 {
@@ -23,6 +24,29 @@ namespace UIAutomationTests
             _driver.Navigate().GoToUrl(URL);
 
             Assert.That(_driver, Is.Not.Null);
+        }
+
+        [Test]
+        public void Create_Country_Test()
+        {
+            var URL = "http://localhost:8080/";
+            var countryName = "Pais Selenium";
+
+            _driver!.Manage().Window.Maximize();
+            _driver.Navigate().GoToUrl(URL);
+
+            _driver.FindElement(By.CssSelector("a[href='/country']")).Click();
+
+            _driver.FindElement(By.Id("name")).SendKeys(countryName);
+            _driver.FindElement(By.Id("continente")).SendKeys("Asia");
+            _driver.FindElement(By.Id("idioma")).SendKeys("Selenium");
+
+            _driver.FindElement(By.CssSelector("button[type='submit']")).Click();
+
+            Thread.Sleep(3000);
+
+            Assert.That(_driver.Url, Is.EqualTo(URL));
+            Assert.That(_driver.PageSource, Does.Contain(countryName));
         }
 
         [TearDown]
