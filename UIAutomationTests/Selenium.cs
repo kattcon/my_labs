@@ -30,7 +30,7 @@ namespace UIAutomationTests
         public void Create_Country_Test()
         {
             var URL = "http://localhost:8080/";
-            var countryName = "Pais Selenium";
+            var countryName = "Pais Selenium3";
 
             _driver!.Manage().Window.Maximize();
             _driver.Navigate().GoToUrl(URL);
@@ -39,7 +39,7 @@ namespace UIAutomationTests
 
             _driver.FindElement(By.Id("name")).SendKeys(countryName);
             _driver.FindElement(By.Id("continente")).SendKeys("Asia");
-            _driver.FindElement(By.Id("idioma")).SendKeys("Selenium");
+            _driver.FindElement(By.Id("idioma")).SendKeys("Selenium3");
 
             _driver.FindElement(By.CssSelector("button[type='submit']")).Click();
 
@@ -51,7 +51,8 @@ namespace UIAutomationTests
 
         [TearDown]
         public void TearDown()
-        {
+        {   
+            Thread.Sleep(10000);
             _driver?.Quit();
             _driver?.Dispose();
         }

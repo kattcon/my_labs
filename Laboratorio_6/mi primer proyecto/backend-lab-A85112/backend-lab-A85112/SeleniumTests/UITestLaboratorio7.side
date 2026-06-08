@@ -57,16 +57,70 @@
       ],
       "value": "Inglés/Frances"
     }, {
-      "id": "b4b5d500-1617-435a-92fc-27acdac4a959",
-      "comment": "",
-      "command": "click",
-      "target": "css=tr:nth-child(8) .btn-danger",
+      "id": "c1d2e3f4-a5b6-47c8-d9e0-f1a2b3c4d5e6",
+      "comment": "Verificar título de la página",
+      "command": "assertTitle",
+      "target": "frontend-lab",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d2e3f4a5-b6c7-48d9-e0f1-a2b3c4d5e6f7",
+      "comment": "Verificar columna Continente",
+      "command": "assertText",
+      "target": "css=th:nth-child(2)",
       "targets": [
-        ["css=tr:nth-child(8) .btn-danger", "css:finder"],
-        ["xpath=//div[@id='app']/div/table/tbody/tr[8]/td[4]/button[2]", "xpath:idRelative"],
-        ["xpath=//tr[8]/td[4]/button[2]", "xpath:position"]
+        ["css=th:nth-child(2)", "css:finder"],
+        ["xpath=//th[contains(.,'Continente')]", "xpath:innerText"]
+      ],
+      "value": "Continente"
+    }, {
+      "id": "e3f4a5b6-c7d8-49e0-f1a2-b3c4d5e6f7a8",
+      "comment": "Verificar columna Idioma",
+      "command": "assertText",
+      "target": "css=th:nth-child(3)",
+      "targets": [
+        ["css=th:nth-child(3)", "css:finder"],
+        ["xpath=//th[contains(.,'Idioma')]", "xpath:innerText"]
+      ],
+      "value": "Idioma"
+    }, {
+      "id": "f4a5b6c7-d8e9-40f1-a2b3-c4d5e6f7a8b9",
+      "comment": "Verificar columna Acciones",
+      "command": "assertText",
+      "target": "css=th:nth-child(4)",
+      "targets": [
+        ["css=th:nth-child(4)", "css:finder"],
+        ["xpath=//th[contains(.,'Acciones')]", "xpath:innerText"]
+      ],
+      "value": "Acciones"
+    }, {
+      "id": "a5b6c7d8-e9f0-41a2-b3c4-d5e6f7a8b9c0",
+      "comment": "Verificar que el botón Agregar país existe",
+      "command": "assertElementPresent",
+      "target": "css=.btn-outline-secondary",
+      "targets": [
+        ["css=.btn-outline-secondary", "css:finder"],
+        ["xpath=//button[contains(.,'Agregar')]", "xpath:innerText"]
       ],
       "value": ""
+    }, {
+      "id": "b6c7d8e9-f0a1-42b3-c4d5-e6f7a8b9c0d1",
+      "comment": "Verificar que no hay mensaje de error en la página",
+      "command": "assertElementNotPresent",
+      "target": "css=.alert-danger",
+      "targets": [
+        ["css=.alert-danger", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7d8e9f0-a1b2-43c4-d5e6-f7a8b9c0d1e2",
+      "comment": "Verificar que el título no contiene texto de error",
+      "command": "assertNotText",
+      "target": "css=.display-4",
+      "targets": [
+        ["css=.display-4", "css:finder"]
+      ],
+      "value": "Error"
     }]
   }],
   "suites": [{
